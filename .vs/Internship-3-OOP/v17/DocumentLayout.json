@@ -1,0 +1,168 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\airplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\airplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Crew.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Crew.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Crew.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Crew.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Crew.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T21:28:11.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CrewMember.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\CrewMember.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\CrewMember.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\CrewMember.cs",
+              "RelativeToolTip": "Internship-3-OOP\\CrewMember.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T21:15:44.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Airplane.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Airplane.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Airplane.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Airplane.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Airplane.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAxwBIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T20:18:46.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Flight.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Flight.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Flight.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Flight.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T20:02:46.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Passenger.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Passenger.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Passenger.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Passenger.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Passenger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T19:08:21.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Enums.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Enums.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Enums.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Enums.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T18:22:43.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Person.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Person.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Person.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Person.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T18:10:08.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Program.cs",
+              "RelativeDocumentMoniker": "Internship-3-OOP\\Program.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Program.cs",
+              "RelativeToolTip": "Internship-3-OOP\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T17:47:34.621Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

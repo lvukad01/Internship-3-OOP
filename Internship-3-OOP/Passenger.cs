@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Internship_3_OOP
+{
+    internal class Passenger : Person
+    {
+        List<Flight> flights;
+
+        public Passenger(string name, string last_name, string email, string password, DateOnly birthday, Gender gender) : base(name, last_name, email, password, birthday, gender)
+        {
+        }
+
+        public override void PrintInfo()
+        {
+
+        }
+    }
+}

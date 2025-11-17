@@ -13,8 +13,8 @@ namespace Internship_3_OOP
         public CrewMember Pilot { get; private set; }
         public CrewMember Copilot { get; private set; }
         public List<CrewMember> Attendants { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
+        public DateTime Created { get; private set; }
+        public DateTime Updated { get; private set; }
 
         public Crew(CrewMember pilot,CrewMember copilot,List<CrewMember> attendants )
         {

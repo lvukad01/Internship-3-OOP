@@ -1,0 +1,15 @@
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.AssemblyInfoInputs.cache
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.AssemblyInfo.cs
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.sourcelink.json
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\bin\Debug\net8.0\Internship-3-OOP.exe
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\bin\Debug\net8.0\Internship-3-OOP.deps.json
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\bin\Debug\net8.0\Internship-3-OOP.runtimeconfig.json
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\bin\Debug\net8.0\Internship-3-OOP.dll
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\bin\Debug\net8.0\Internship-3-OOP.pdb
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.dll
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\refint\Internship-3-OOP.dll
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.pdb
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\Internship-3-OOP.genruntimeconfig.cache
+C:\Users\Korisnik\source\repos\Internship-3-OOP\Internship-3-OOP\obj\Debug\net8.0\ref\Internship-3-OOP.dll

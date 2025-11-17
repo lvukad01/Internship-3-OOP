@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,9 @@ namespace Internship_3_OOP
 {
     internal class Flight
     {
-        public Guid Id { get;private set; }
+        public Guid Id { get; private set; }
+        public static int counter=1;
+        public int DisplayId {  get; private set; }
         public string Name { get; set; }
         public DateTime DepartureTime {  get; set; }
         public DateTime ArrivalTime {  get; set; }
@@ -19,6 +22,8 @@ namespace Internship_3_OOP
         public Flight(string name, DateTime departureTime, DateTime arrivalTime, double distance, TimeOnly duration)
         {
             Id= Guid.NewGuid();
+            DisplayId = counter + 1;
+            counter++;
             Name = name;
             DepartureTime = departureTime;
             ArrivalTime = arrivalTime;

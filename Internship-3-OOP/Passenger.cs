@@ -8,19 +8,21 @@ namespace Internship_3_OOP
 {
     internal class Passenger : Person
     {
-        List<Guid> Flights {  get; set; }
+        public List<Reservation> Flights {  get; set; }
 
         public Passenger(string name, string last_name, string email, string password, DateOnly birthday, Gender gender) : base(name, last_name, email, password, birthday, gender)
         {
-            Flights = new List<Guid>();
+            Flights = new List<Reservation>();
         }
 
         public void AddFlights(Guid flight_guid)
         {
-            if(!Flights.Contains(flight_guid))
+            foreach (Reservation reservation in Flights)
             {
-                Flights.Add(flight_guid);
-                Update();
+                if(reservation.FlightId == flight_guid)
+                {
+                    Flights.Add(reservation);
+                }
             }
         }
         public override void PrintInfo()

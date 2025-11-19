@@ -11,7 +11,9 @@ namespace Internship_3_OOP
             {
                new Passenger("Lana","Vukadin","lana.vukadin@gmail.com","lanalozinka",new DateOnly(2005,10,03),Gender.Female),
                new Passenger("Arijana","Radeljak","arijana.radeljak@gmail.com","arijanalozinka",new DateOnly(2005,10,02),Gender.Female),
-               new Passenger("Andrea","Vukadin","andrea.vukadin@gmail.com","andrealozinka",new DateOnly(2001,10,07),Gender.Female)
+               new Passenger("Andrea","Vukadin","andrea.vukadin@gmail.com","andrealozinka",new DateOnly(2001,10,07),Gender.Female),
+               new Passenger("l","l","l","l",new DateOnly(2001,10,07),Gender.Female)
+
             };
 
             List<Airplane> airplanes = new List<Airplane>()
@@ -29,11 +31,12 @@ namespace Internship_3_OOP
                 new Flight("Split - Frankfurt",new DateTime(2025, 11, 5, 13, 10, 0),new DateTime(2025, 11, 5, 15, 15, 0),950,new TimeOnly(2, 5),airplanes[1]),
                 new Flight("Split - London",new DateTime(2025, 4, 12, 17, 55, 0),new DateTime(2025, 4, 12, 20, 35, 0),1550,new TimeOnly(2, 40),airplanes[3])
             };
-            passengers[0].AddFlights(flights[0].Id);
-            passengers[1].AddFlights(flights[3].Id);
-            passengers[2].AddFlights(flights[1].Id);
-            passengers[2].AddFlights(flights[2].Id);
-
+            passengers[0].AddFlights(flights[0].Id,SeatCategory.Economy);
+            passengers[1].AddFlights(flights[3].Id,SeatCategory.Business);
+            passengers[2].AddFlights(flights[1].Id,SeatCategory.Economy);
+            passengers[2].AddFlights(flights[2].Id, SeatCategory.FirstClass);
+            passengers[3].AddFlights(flights[1].Id, SeatCategory.Business);
+            passengers[3].AddFlights(flights[2].Id, SeatCategory.FirstClass);
             int input = 0;
             while (input != 5)
             {
@@ -213,10 +216,16 @@ namespace Internship_3_OOP
                 switch (input)
                 {
                     case 1:
-                        FlightList(passenger, flights);
+                        PassengerFlightList(passenger, flights);
                         break;
                     case 2:
-                        ReserveFlightList(passenger, flights);
+                        ReserveFlight(passenger, flights);
+                        break;
+                    case 3:
+                        PassengerSearchFlight(passenger, flights);
+                        break;
+                    case 4:
+                        PassengerCancelFlight(passenger, flights);
                         break;
                     case 5:
                         Console.WriteLine("Povratak u glavni izbornik, pritisnite bilo koju tipku");
@@ -225,7 +234,7 @@ namespace Internship_3_OOP
                 }
             }
         }
-        static void FlightList(Passenger passenger, List<Flight> flights)
+        static void PassengerFlightList(Passenger passenger, List<Flight> flights)
         {
             Console.Clear();
             if(passenger.Flights.Count==0)
@@ -243,13 +252,13 @@ namespace Internship_3_OOP
             Console.WriteLine("\n\nZa povratak pritisnite bilo koju tipku");
             Console.ReadKey();
         }
-        static void ReserveFlightList(Passenger passenger, List<Flight> flights)
+        static void ReserveFlight(Passenger passenger, List<Flight> flights)
         {
             Console.Clear();
             var input = -1;
             int counter = 0;
             Flight chosenFlight=null;
-            List<Flight> availableFlights=null;
+            List<Flight> availableFlights=new List<Flight>();
             foreach(var flight in flights)
             {
                 int availableSeats = flight.getNumberofAllSeats();
@@ -274,7 +283,7 @@ namespace Internship_3_OOP
             while (input != 0)
             {
                 input = ReadInt("");
-                chosenFlight = flights.FirstOrDefault(f => f.DisplayId == input);
+                chosenFlight = availableFlights.FirstOrDefault(f => f.DisplayId == input);
                 if (chosenFlight == null)
                 {
                     Console.WriteLine("Let s tim ID-om ne postoji, ako želite odustati od odabira unesite 0,za nastavak unesite bilo koji drugi broj");
@@ -299,9 +308,9 @@ namespace Internship_3_OOP
                 else
                     input = 0;
             }
-            chooseCategory(passenger,chosenFlight);
+            ChooseCategory(passenger,chosenFlight);
         }
-        static void chooseCategory(Passenger passenger,Flight flight)
+        static void ChooseCategory(Passenger passenger,Flight flight)
         {
             int input = -1;
             char choice = '0';
@@ -328,14 +337,132 @@ namespace Internship_3_OOP
             {
                 passenger.Flights.Add(reserve);
                 flight.ReservedSeats[chosenSeat]++;
-                Console.WriteLine("Rezervacija je uspješna");
-                Thread.Sleep(2000);
+                Console.WriteLine("Rezervacija je uspješna,pritisnite bilo koju tipku");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Odustajanje od rezerviranja");
                 return;
             }
+        }
+        static void PassengerSearchFlight(Passenger passenger,List<Flight> flights)
+        {
+            Console.Clear();
+            Console.WriteLine("Pretraživanje letova:\r\na)po ID-u\r\nb)po nazivu");
+            var choice = '0';
+            while (choice == '0')
+            {
+                choice = ReadChar("");
+                switch (choice)
+                {
+                    case 'a':
+                        PassengerSearchFlightId(passenger,flights);
+                        break;
+                    case 'b':
+                        PassengerSearchFlightName(passenger,flights);
+                        break;
+                    default:
+                        Console.WriteLine("Pogrešan unos, unesite a ili b,pritisnite bilo koju tipku pa pokušajte ponovo");
+                        choice = '0';
+                        Console.ReadKey();
+                        break;
+                }
+            }
+        }
+        static void PassengerSearchFlightId(Passenger passenger, List<Flight> flights)
+        {
+            int flightID = ReadInt("Unesite ID leta koji želite pretražiti:\n");
+
+            Flight chosenFlight = flights.FirstOrDefault(f => f.DisplayId == flightID);
+
+            if (chosenFlight != null)
+            {
+                chosenFlight.Print();
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji let s tim ID-om");
+            }
+            Console.WriteLine("Pritisnite bilo koju tipku za povratak u prethodni izbornik");
+            Console.ReadKey();
+
+        }
+        static void PassengerSearchFlightName(Passenger passenger, List<Flight> flights)
+        {
+            string flightName = ReadNonEmpty("Unesite naziv leta koji želite pretražiti:\n");
+            Flight chosenFlight=flights.FirstOrDefault(f=>string.Equals(flightName.Trim(),f.Name.Trim(), StringComparison.OrdinalIgnoreCase));
+            if (chosenFlight != null)
+            {
+                chosenFlight.Print();
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji let s tim ID-om");
+            }
+            Console.WriteLine("Pritisnite bilo koju tipku za povratak u prethodni izbornik");
+            Console.ReadKey();
+
+        }
+        static void PassengerCancelFlight(Passenger passenger, List<Flight> flights)
+        {
+            Console.Clear();
+            var input = -1;
+            char choice = '0';
+            Flight chosenFlight = null;
+            if (passenger.Flights.Count == 0)
+            {
+                Console.WriteLine("Korisnik nema rezerviranih letova, za povratak u prethodni izbornik pritisnite bilo koju tipku");
+                Console.ReadKey();
+                return;
+            }
+
+            while (input != 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Rezervirani letovi:");
+                Console.WriteLine("ID - Naziv - Datum polaska - Datum dolaska - Udaljenost - Vrijeme putovanja\n");
+                foreach (var Id in passenger.Flights)
+                {
+                    var flight = flights.FirstOrDefault(f => f.Id == Id.FlightId);
+                    flight.Print();
+                }
+                Console.WriteLine("Unesite ID leta koji želite izbrisati,ako želite odustati unesite 0: ");
+                input = ReadInt("");
+                chosenFlight =flights.FirstOrDefault(f => f.DisplayId == input);
+                if (chosenFlight == null||!passenger.Flights.Any(f => f.FlightId == chosenFlight.Id))
+                { 
+                    Console.WriteLine("Let s tim ID-om nije na popisu, ako želite odustati od odabira unesite 0,za nastavak unesite bilo koji drugi broj");
+                    input = ReadInt("");
+                    if (input == 0)
+                    {
+                        Console.WriteLine("Vraćanje u prethodni izbornik, pritisnite bilo koju tipku");
+                        Console.ReadKey();
+                        return;
+                    }
+                }
+                else if (input == 0)
+                {
+                    Console.WriteLine("Povratak na prethodni izbornik, pritisnite bilo koju tipku");
+                    Console.ReadKey();
+                    return;
+                }
+                else
+                    input = 0;
+            }
+            Reservation deleteReservation = passenger.Flights.FirstOrDefault(f => f.FlightId == chosenFlight.Id);
+            Console.WriteLine($"Jeste li sigurni da želite izbrisati rezervaciju za let {chosenFlight.Name}?(y/n)");
+            choice = ReadChar("");
+            if (choice != 'y')
+                Console.WriteLine("Brisanje rezervacije otkazano");
+            else
+            { 
+                passenger.CancelFlight(deleteReservation);
+                chosenFlight.ReservedSeats[deleteReservation.Category]--;
+                Console.WriteLine("Brisanje rezervacije dovršeno");
+            }
+            Console.WriteLine("\n\nZa povratak pritisnite bilo koju tipku");
+            Console.ReadKey();
         }
         static double ReadDouble(string message)
         {

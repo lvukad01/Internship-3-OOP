@@ -25,7 +25,7 @@ namespace Internship_3_OOP
         public Flight(string name, DateTime departureTime, DateTime arrivalTime, double distance, TimeOnly duration,Airplane airplane)
         {
             Id= Guid.NewGuid();
-            DisplayId = counter + 1;
+            DisplayId = counter;
             counter++;
             Name = name;
             DepartureTime = departureTime;
@@ -49,22 +49,18 @@ namespace Internship_3_OOP
         public int getNumberofSeats(SeatCategory category)
         {
             int totalSeats = Airplane.Seat[category];
-
-            int reservedSeats = ReservedSeats.Count(r => r.Key == category);
+            int reservedSeats = ReservedSeats[category];
             return totalSeats - reservedSeats;
         }
         public int getNumberofAllSeats()
         {
-            int availableSeats=0;
-            foreach(var seat in Airplane.Seat)
+            int availableSeats = 0;
+            foreach (var seat in Airplane.Seat)
             {
-                foreach (var reservedSeat in ReservedSeats)
-                {
-                    if (Airplane.Seat.Contains(reservedSeat))
-                    {
-                        availableSeats += (seat.Value - reservedSeat.Value);
-                    }
-                }
+                SeatCategory category = seat.Key;
+                int total = seat.Value;
+                int reserved = ReservedSeats[category];
+                availableSeats += (total - reserved);
             }
             return availableSeats;
         }

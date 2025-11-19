@@ -15,15 +15,13 @@ namespace Internship_3_OOP
             Flights = new List<Reservation>();
         }
 
-        public void AddFlights(Guid flight_guid)
+        public void AddFlights(Guid flight_guid,SeatCategory seatCategory)
         {
-            foreach (Reservation reservation in Flights)
-            {
-                if(reservation.FlightId == flight_guid)
-                {
-                    Flights.Add(reservation);
-                }
-            }
+            Flights.Add(new Reservation(flight_guid, seatCategory));
+        }
+        public void CancelFlight(Reservation reservation)
+        {
+            Flights.Remove(reservation);
         }
         public override void PrintInfo()
         {

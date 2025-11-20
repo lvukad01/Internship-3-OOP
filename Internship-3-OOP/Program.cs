@@ -49,6 +49,9 @@ namespace Internship_3_OOP
                     case 1:
                         PassengerMenu(passengers, flights);
                         break;
+                    case 2:
+                        FlightMenu(flights);
+                        break;
                     default:
                         break;
 
@@ -450,7 +453,15 @@ namespace Internship_3_OOP
                 else
                     input = 0;
             }
+            TimeSpan timeUntilFlight = chosenFlight.DepartureTime - DateTime.Now;
+            if (timeUntilFlight < TimeSpan.FromHours(24))
+            {
+                Console.WriteLine("Nemoguće otkazati let koji je za manje od 24 sata, pritisnite bilo koju tipku za povratak u prethodni izbornik");
+                Console.ReadKey();
+                return;
+            }
             Reservation deleteReservation = passenger.Flights.FirstOrDefault(f => f.FlightId == chosenFlight.Id);
+
             Console.WriteLine($"Jeste li sigurni da želite izbrisati rezervaciju za let {chosenFlight.Name}?(y/n)");
             choice = ReadChar("");
             if (choice != 'y')
@@ -464,6 +475,126 @@ namespace Internship_3_OOP
             Console.WriteLine("\n\nZa povratak pritisnite bilo koju tipku");
             Console.ReadKey();
         }
+        static void FlightMenu(List<Flight> flights)
+        {
+            int input = 0;
+            while (input != 6)
+            {
+                Console.Clear();
+                Console.WriteLine("Letovi:\r\n1. Prikaz svih letova\r\n2.Dodavanje leta\r\n3.Pretraživanje letova\r\n4.Uređivanje leta\r\n5.Brisanje leta\r\n6.Povratak na glavni izbornik ");
+                input = ReadInt("");
+                switch (input)
+                {
+                    case 1:
+                        FlightList( flights);
+                        break;
+                    case 2:
+                        AddFlight(flights);
+                        break;
+                    case 3:
+                        SearchFlight(flights);
+                        break;
+                    case 4:
+                        EditFlight(flights);
+                        break;
+                    case 5:
+                        DeleteFlight(flights);
+                        break;
+                    case 6:
+                        Console.WriteLine("Povratak u glavni izbornik, pritisnite bilo koju tipku");
+                        Console.ReadKey();
+                        return;
+                }
+            }
+        }
+        static void FlightList(List<Flight> flights)
+        {
+            Console.WriteLine("\nID - Naziv - Datum polaska - Datum dolaska - Udaljenost - Vrijeme putovanja\n");
+            foreach (var flight in flights)
+            {
+                flight.Print();
+            }
+            Console.WriteLine("\nZa povratak u prethodni izbornik pritisnite bilo koju tipku");
+            Console.ReadKey();
+        }
+        static void AddFlight(List<Flight> flights)
+        {
+
+        }
+        static void SearchFlight(List<Flight> flights)
+        {
+            Console.Clear();
+            char input = ' ';
+            Console.WriteLine("Pretraživanje leta:\r\na)po ID-u\r\nb)po nazivu\r\n0)Povratak u prethodni izbornik");
+            while(input!='0')
+            {
+
+                input = ReadChar("");
+                switch(input)
+                {
+                    case 'a':
+                        SearchFlightId(flights);
+                        return;
+                    case 'b':
+                        SearchFlightName(flights);
+                        return;
+                    case '0':
+                        break;
+                    default:
+                        Console.WriteLine("Pogrešan unos, unesite a ili b, za povratak unesite 0 ");
+                        break;
+                }
+
+            }
+            Console.WriteLine("Povratak u prethodni izbornik,pritisnite bilo koju tipku");
+            Console.ReadKey();
+        }
+        static void SearchFlightId(List<Flight> flights)
+        {
+            Console.Clear();
+            int flightID = ReadInt("Pretraživanje leta po ID-u\n\nUnesite ID leta koji želite pretražiti:\n");
+
+            Flight chosenFlight = flights.FirstOrDefault(f => f.DisplayId == flightID);
+
+            if (chosenFlight != null)
+            {
+                Console.WriteLine("\nID - Naziv - Datum polaska - Datum dolaska - Udaljenost - Vrijeme putovanja");
+                chosenFlight.Print();
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji let s tim ID-om");
+            }
+            Console.WriteLine("Pritisnite bilo koju tipku za povratak u izbornik letova");
+            Console.ReadKey();
+        }
+        static void SearchFlightName(List<Flight> flights)
+        {
+            Console.Clear();
+            string flightName = ReadNonEmpty("Pretraživanje leta po nazivu\n\nUnesite naziv leta koji želite pretražiti:\n");
+            Flight chosenFlight = flights.FirstOrDefault(f => string.Equals(flightName.Trim(), f.Name.Trim(), StringComparison.OrdinalIgnoreCase));
+            if (chosenFlight != null)
+            {
+                Console.WriteLine("\nID - Naziv - Datum polaska - Datum dolaska - Udaljenost - Vrijeme putovanja");
+                chosenFlight.Print();
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji let s tim ID-om");
+            }
+            Console.WriteLine("Pritisnite bilo koju tipku za povratak u prethodni izbornik");
+            Console.ReadKey();
+
+        }
+        static void EditFlight(List<Flight> flights)
+        {
+
+        }
+        static void DeleteFlight(List<Flight> flights)
+        {
+
+        }
+
         static double ReadDouble(string message)
         {
             Console.Write(message);

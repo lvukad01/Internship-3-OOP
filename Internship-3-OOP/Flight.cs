@@ -13,25 +13,26 @@ namespace Internship_3_OOP
         public static int counter=1;
         public int DisplayId {  get; private set; }
         public string Name { get; set; }
-        public DateTime DepartureTime {  get; set; }
-        public DateTime ArrivalTime {  get; set; }
+        public DateTime Departure {  get; set; }
+        public DateTime Arrival {  get; set; }
         public double Distance {  get; set; }
-        public TimeOnly Duration {  get; set; }
+        public TimeSpan Duration { get; set; }
         public DateTime Created { get;private set; }
         public DateTime Updated { get;private set; }
         public Airplane Airplane { get; set; }
+        public Crew Crew { get; set; }
         public Dictionary<SeatCategory, int> ReservedSeats { get; set; }
 
-        public Flight(string name, DateTime departureTime, DateTime arrivalTime, double distance, TimeOnly duration,Airplane airplane)
+        public Flight(string name, DateTime departure, DateTime arrival, double distance,Airplane airplane, Crew crew)
         {
-            Id= Guid.NewGuid();
+            Id = Guid.NewGuid();
             DisplayId = counter;
             counter++;
             Name = name;
-            DepartureTime = departureTime;
-            ArrivalTime = arrivalTime;
+            Departure = departure;
+            Arrival = arrival;
             Distance = distance;
-            Duration = duration;
+            Duration = arrival - departure;
             Airplane = airplane;
             Created = DateTime.Now;
             Updated = DateTime.Now;
@@ -41,6 +42,7 @@ namespace Internship_3_OOP
                 {SeatCategory.Business, 0},
                 {SeatCategory.FirstClass, 0}
             };
+            Crew = crew;
         }
         public void Update()
         {
@@ -66,7 +68,7 @@ namespace Internship_3_OOP
         }
         public void Print()
         {
-            Console.WriteLine($"{DisplayId} - {Name} - {DepartureTime} - {ArrivalTime} - {Distance} - {Duration}");
+            Console.WriteLine($"{DisplayId} - {Name} - {Departure} - {Arrival} - {Distance} km - {Duration} h");
         }
     }
 }

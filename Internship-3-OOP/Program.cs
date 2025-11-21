@@ -7,73 +7,12 @@ namespace Internship_3_OOP
         static void Main()
         {
             Console.Clear();
-            List<Passenger> passengers = new List<Passenger>()
-            {
-               new Passenger("Lana","Vukadin","lana.vukadin@gmail.com","lanalozinka",new DateOnly(2005,10,03),Gender.Female),
-               new Passenger("Arijana","Radeljak","arijana.radeljak@gmail.com","arijanalozinka",new DateOnly(2005,10,02),Gender.Female),
-               new Passenger("Andrea","Vukadin","andrea.vukadin@gmail.com","andrealozinka",new DateOnly(2001,10,07),Gender.Female),
-               new Passenger("l","l","l","l",new DateOnly(2001,10,07),Gender.Female)
+            var passengers = InitializeData.Passengers;
+            var crewMembers = InitializeData.CrewMembers;
+            var airplanes = InitializeData.Airplanes;
+            var crews = InitializeData.Crews;
+            var flights = InitializeData.Flights;
 
-            };
-            List<CrewMember>crewMembers = new List<CrewMember>()
-            {
-                new CrewMember("Ilva", "Peric", "ilva.peric@example.com", "ilvalozinka", new DateOnly(1992, 4, 12), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Mate", "Matic", "mate.matic@example.com", "matelozinka", new DateOnly(1987, 9, 3), Gender.Male, CrewPosition.Pilot),
-                new CrewMember("Petra", "Karadza", "petra.karadza@example.com", "petralozinka", new DateOnly(1995, 2, 17), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Barbara", "Tomas", "barbara.tomas@example.com", "barbaralozinka", new DateOnly(1990, 8, 22), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Monika", "Dzaja", "monika.dzaja@example.com", "monikalozinka", new DateOnly(1994, 11, 5), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Nika", "Istuk", "nika.istuk@example.com", "nikalozinka", new DateOnly(1998, 1, 14), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Nika", "Vukadin", "nika.vukadin@example.com", "nikalozinka", new DateOnly(1997, 6, 29), Gender.Female, CrewPosition.Pilot),
-                new CrewMember("Nikolina", "Tokic", "nikolina.tokic@example.com", "nikolinalozinka", new DateOnly(1993, 12, 20), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Zoran", "Karaula", "zoran.karaula@example.com", "zoranlozinka", new DateOnly(1985, 3, 10), Gender.Male, CrewPosition.Copilot),
-                new CrewMember("Ivan", "Omazic", "ivan.omazic@example.com", "ivanlozinka", new DateOnly(1989, 5, 7), Gender.Male, CrewPosition.Copilot)
-            };
-
-
-            List<Airplane> airplanes = new List<Airplane>()
-            {
-                new Airplane("Airbus A320", 2015, 842, new Dictionary<SeatCategory,int>{{SeatCategory.Economy,150},{SeatCategory.Business,18},{SeatCategory.FirstClass,0}}),
-                new Airplane("Boeing 737-800", 2012, 1094, new Dictionary<SeatCategory,int>{{SeatCategory.Economy,162},{SeatCategory.Business,12},{SeatCategory.FirstClass,0}}),
-                new Airplane("Airbus A330-300", 2018, 540, new Dictionary<SeatCategory,int>{{SeatCategory.Economy,250},{SeatCategory.Business,36},{SeatCategory.FirstClass,8}}),
-                new Airplane("Boeing 777-300ER", 2020, 320, new Dictionary<SeatCategory,int>{{SeatCategory.Economy,300},{SeatCategory.Business,40},{SeatCategory.FirstClass,8}}),
-                new Airplane("Airbus A350-900", 2019, 410, new Dictionary<SeatCategory,int>{{SeatCategory.Economy,260},{SeatCategory.Business,48},{SeatCategory.FirstClass,12}})
-            };
-            var crews = new List<Crew>()
-            {
-                new Crew(
-                    name:"Posada 1",
-                    pilot: crewMembers.First(c => c.Name == "Mate"),
-                    copilot: crewMembers.First(c => c.Name == "Zoran"),
-                    attendants: new List<CrewMember>()
-                    {
-                        crewMembers.First(c => c.Name == "Ilva"),
-                        crewMembers.First(c => c.Name == "Petra")
-                    }
-                ),
-                new Crew(
-                    name:"Posada 2",
-                    pilot: crewMembers.First(c => c.Name == "Nika" && c.LastName == "Vukadin"),
-                    copilot: crewMembers.First(c => c.Name == "Ivan"),
-                    attendants: new List<CrewMember>()
-                    {
-                        crewMembers.First(c => c.Name == "Barbara"),
-                        crewMembers.First(c => c.Name == "Monika")
-                    }
-                )
-};
-            List<Flight> flights = new List<Flight>()
-            {
-                new Flight("St-Zg",new DateTime(2025,12,23,15,30,00),new DateTime(2025,12,23,16,30,00),260,airplanes[0],crews[0]),
-                new Flight("Split - Dubrovnik",new DateTime(2026, 8, 2, 6, 20, 0),new DateTime(2025, 8, 2, 7, 05, 0),165,airplanes[2],crews[1]),
-                new Flight("Split - Frankfurt",new DateTime(2025, 11, 5, 13, 10, 0),new DateTime(2025, 11, 5, 15, 15, 0),950,airplanes[1],crews[1]),
-                new Flight("Split - London",new DateTime(2025, 4, 12, 17, 55, 0),new DateTime(2025, 4, 12, 20, 35, 0),1550,airplanes[3],crews[0])
-            };
-            passengers[0].AddFlights(flights[0].Id,SeatCategory.Economy);
-            passengers[1].AddFlights(flights[3].Id,SeatCategory.Business);
-            passengers[2].AddFlights(flights[1].Id,SeatCategory.Economy);
-            passengers[2].AddFlights(flights[2].Id, SeatCategory.FirstClass);
-            passengers[3].AddFlights(flights[1].Id, SeatCategory.Business);
-            passengers[3].AddFlights(flights[2].Id, SeatCategory.FirstClass);
             int input = 0;
             while (input != 5)
             {
@@ -87,7 +26,7 @@ namespace Internship_3_OOP
                         PassengerMenu(passengers, flights);
                         break;
                     case 2:
-                        FlightMenu(flights,airplanes,crews);
+                        FlightMenu(flights,airplanes,crews,passengers);
                         break;
                     default:
                         break;
@@ -108,7 +47,7 @@ namespace Internship_3_OOP
                 switch (input)
                 {
                     case 1:
-                        RegisterPassenger(passengers);
+                        RegisterPassenger(passengers,flights);
                         break;
                     case 2:
                         PassengerLogIn(passengers, flights);
@@ -125,7 +64,7 @@ namespace Internship_3_OOP
             }
 
         }
-        static void RegisterPassenger(List<Passenger> passengers)
+        static void RegisterPassenger(List<Passenger> passengers,List<Flight> flights)
         {
             Console.Clear();
             string name = null, surname = null, email = null, password = null;
@@ -138,21 +77,28 @@ namespace Internship_3_OOP
             while (email == null)
             {
                 email = ReadNonEmpty("Unesite email: ");
-                if (IsValidEmail(email))
-                    continue;
-                else
+                if (!IsValidEmail(email))
                     Console.WriteLine("Neispravan format emaila,pokušajte ponovo.");
 
                 foreach (var passenger in passengers)
                 {
 
-                    if (passenger.Email == email)
+                    if (string.Equals(passenger.Email, email, StringComparison.OrdinalIgnoreCase))
                     {
-                        Console.WriteLine("Korisnik s tim mailom već postoji.\nAko želite odustati od radnje unesite 0,za promjenu unesenog maila unesite bilo koji drugi broj");
+                        Console.WriteLine("Korisnik s tim mailom već postoji.\nAko želite ići na prijavu unesite 1,za odustajanje unesite 0, a za ponovni pokušaj registracije unesite bilo koji drugi broj");
                         {
                             input = ReadInt("");
-                            if (input == 0)
+                            if (input == '0')
+                            {
+                                PassengerLogIn(passengers, flights);
                                 return;
+                            }
+                            else if (input == '1')
+                            {
+                                Console.WriteLine("Povratak u prethodni izbornik, pritisnite bilo koju tipku");
+                                Console.ReadKey();
+                                return;
+                            }
                             else
                                 email = null;
                         }
@@ -514,7 +460,7 @@ namespace Internship_3_OOP
             Console.WriteLine("\n\nZa povratak pritisnite bilo koju tipku");
             Console.ReadKey();
         }
-        static void FlightMenu(List<Flight> flights,List <Airplane> airplanes,List<Crew> crews)
+        static void FlightMenu(List<Flight> flights,List <Airplane> airplanes,List<Crew> crews,List<Passenger> passengers)
         {
             int input = 0;
             while (input != 6)
@@ -534,10 +480,10 @@ namespace Internship_3_OOP
                         SearchFlight(flights);
                         break;
                     case 4:
-                        EditFlight(flights);
+                        EditFlight(flights,crews);
                         break;
                     case 5:
-                        DeleteFlight(flights);
+                        DeleteFlight(flights,passengers);
                         break;
                     case 6:
                         Console.WriteLine("Povratak u glavni izbornik, pritisnite bilo koju tipku");
@@ -699,13 +645,140 @@ namespace Internship_3_OOP
             Console.ReadKey();
 
         }
-        static void EditFlight(List<Flight> flights)
+        static void EditFlight(List<Flight> flights,List<Crew> crews)
         {
-
+            Console.Clear();
+            var input = 0;
+            char? choice = null;
+            input = ReadInt("Unesite ID leta kojeg želite urediti: ");
+            var chosenFlight=flights.FirstOrDefault(f=>f.DisplayId == input);
+            if (chosenFlight != null)
+            {
+                Console.WriteLine("Ne postoji let s tim ID-om, pritisnite bilo koju tipku za vraćanje u prethodni izbornik");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine($"Uređivanje leta {chosenFlight.Name}\r\na)Uredi vrijeme polaska\r\nb)Uredi vrijeme dolaska\r\nc)Promijeni posadud)Sve od navedenog0)Odustani");
+            choice = ReadChar("");
+            DateTime departure = chosenFlight.Departure;
+            DateTime arrival=chosenFlight.Arrival;
+            Crew crew = chosenFlight.Crew;
+            while (choice != '0')
+            {
+                choice = ReadChar("");
+                switch (choice)
+                {
+                    case 'a':
+                        Console.WriteLine($"\nStaro vrijeme polaska: {chosenFlight.Departure}\nNovo vrijeme polaska: ");
+                        departure = ReadDateTime("");
+                        break;
+                    case 'b':
+                        Console.WriteLine($"\nStaro vrijeme dolaska: {chosenFlight.Arrival}\nNovo vrijeme dolaska: ");
+                        arrival = ReadDateTime("");
+                        break;
+                    case 'c':
+                       crew= EditFlightCrew(chosenFlight,crews);
+                        break;
+                    case 'd':
+                        Console.WriteLine($"\nStaro vrijeme polaska: {chosenFlight.Departure}\nNovo vrijeme polaska: ");
+                        departure = ReadDateTime("");
+                        Console.WriteLine($"\nStaro vrijeme dolaska: {chosenFlight.Arrival}\nNovo vrijeme dolaska: ");
+                        arrival = ReadDateTime("");
+                        crew = EditFlightCrew(chosenFlight, crews);
+                        break;
+                    case '0':
+                        break;
+                    default:
+                        Console.WriteLine("Pogrešan unos, pokušajte ponovo");
+                        choice = null;
+                        break;
+                }
+            }
+            Console.WriteLine($"Želite li spremiti unesene promjene za let {chosenFlight}? (y/n)");
+            choice = ReadChar("");
+            if (choice != 'y')
+                return;
+            chosenFlight.Departure= departure;
+            chosenFlight.Arrival= arrival;
+            chosenFlight.Crew= crew;
+            Console.WriteLine("Promjene uspješno spremljene, pritisnite bilo koju tipku za povratak u prethodni izbornik");
+            Console.ReadKey();
         }
-        static void DeleteFlight(List<Flight> flights)
+        static Crew  EditFlightCrew(Flight flight,List<Crew> crews)
         {
+            Crew crew= null;
+            var input = 0;
+            Console.WriteLine($"\nStara posada: {flight.Crew.Name}");
+            Console.WriteLine("\nPopis ostalih posada: ");
 
+            Console.WriteLine("ID - Naziv posade");
+            foreach(var c in crews)
+            {
+                if (flight.Crew == c)
+                    break;
+                Console.WriteLine($"{c.DisplayId} - {c.Name}");
+            }
+            Console.WriteLine("Unesite Id posade koju želite odabrati: ");
+            while (true)
+            {
+                input = ReadInt("");
+                crew = crews.FirstOrDefault(c => c.DisplayId == input);
+                if(crew==null)
+                {
+                    Console.WriteLine("Ne postoji posada s tim ID-om, pokušajte ponovo");
+                }
+                else
+                    break;
+            }
+            return crew;
+        }
+        static void DeleteFlight(List<Flight> flights,List<Passenger> passengers)
+        {
+            Console.Clear();
+            var input = 0;
+            char? choice = null;
+            input = ReadInt("Unesite ID leta kojeg želite izbrisati: ");
+            var chosenFlight = flights.FirstOrDefault(f => f.DisplayId == input);
+            if (chosenFlight != null)
+            {
+                Console.WriteLine("Ne postoji let s tim ID-om, pritisnite bilo koju tipku za vraćanje u prethodni izbornik");
+                Console.ReadKey();
+                return;
+            }
+            TimeSpan timeUntilFlight = DateTime.Now - chosenFlight.Departure;
+            var availableSeats = chosenFlight.getNumberofAllSeats();
+            var totalSeats = 0;
+            foreach (var seatCategory in chosenFlight.Airplane.Seat) 
+            {
+                totalSeats += seatCategory.Value;
+            }
+            if (availableSeats/totalSeats*100>=50)
+            {
+                Console.WriteLine("Let nije moguce otkazati jer je popunjenost veća od 50%, pritisnite bilo koju tipku za vraćanje u prethodni izbornik ");
+                Console.ReadKey();
+                return;
+            }
+            if(timeUntilFlight < TimeSpan.FromHours(24))
+            {
+                Console.WriteLine("Let nije moguce otkazati jer je polazak za manje od 24 sata, pritisnite bilo koju tipku za vraćanje u prethodni izbornik ");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine($"Jeste li sigurni da želite izbrisati let {chosenFlight.Name}? (y/n)");
+            choice = ReadChar("");
+            if (choice != 'y') ;
+                Console.WriteLine("Brisanje leta otkazano, povratak na prethodni izbornik");
+            foreach(var passenger in passengers)
+            {
+                var removeFlight = passenger.Flights.FirstOrDefault(f => f.FlightId == chosenFlight.Id);
+                if (removeFlight!=null)
+                {
+                    passenger.Flights.Remove(removeFlight);
+                }
+            }
+            flights.Remove(chosenFlight);
+            Console.WriteLine("Brisanje leta uspješno, pritisnite bilo koju tipku za povratak");
+            Console.ReadKey();
         }
 
         static double ReadDouble(string message)

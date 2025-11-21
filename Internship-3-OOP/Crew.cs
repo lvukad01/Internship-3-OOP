@@ -36,6 +36,14 @@ namespace Internship_3_OOP
         }
         public void print()
         {
+            Console.WriteLine($"{Name} - {Pilot.Name} {Pilot.LastName}, {Copilot.Name} {Copilot.LastName}, {Attendants[0].Name} {Attendants[0].LastName}, {Attendants[1].Name} {Attendants[1].LastName}");
+        }
+
+        public List<CrewMember> AllAttendants()
+        {
+            var list = new List<CrewMember> { Pilot, Copilot };
+            list.AddRange(Attendants);
+            return list;
         }
         public void Update()
         {

@@ -24,7 +24,7 @@ namespace Internship_3_OOP
 
         public override void PrintInfo()
         {
-
+            Console.WriteLine($"{Name} - {LastName} - {Position} - {Gender} - {Birthday}");
         }
     }
 }

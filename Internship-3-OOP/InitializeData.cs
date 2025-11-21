@@ -44,16 +44,16 @@ namespace Internship_3_OOP
         {
             CrewMembers = new List<CrewMember>()
             {
-                new CrewMember("Ilva", "Peric", "ilva.peric@example.com", "ilvalozinka", new DateOnly(1992, 4, 12), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Mate", "Matic", "mate.matic@example.com", "matelozinka", new DateOnly(1987, 9, 3), Gender.Male, CrewPosition.Pilot),
-                new CrewMember("Petra", "Karadza", "petra.karadza@example.com", "petralozinka", new DateOnly(1995, 2, 17), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Barbara", "Tomas", "barbara.tomas@example.com", "barbaralozinka", new DateOnly(1990, 8, 22), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Monika", "Dzaja", "monika.dzaja@example.com", "monikalozinka", new DateOnly(1994, 11, 5), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Nika", "Istuk", "nika.istuk@example.com", "nikalozinka", new DateOnly(1998, 1, 14), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Nika", "Vukadin", "nika.vukadin@example.com", "nikalozinka", new DateOnly(1997, 6, 29), Gender.Female, CrewPosition.Pilot),
-                new CrewMember("Nikolina", "Tokic", "nikolina.tokic@example.com", "nikolinalozinka", new DateOnly(1993, 12, 20), Gender.Female, CrewPosition.Stewardess),
-                new CrewMember("Zoran", "Karaula", "zoran.karaula@example.com", "zoranlozinka", new DateOnly(1985, 3, 10), Gender.Male, CrewPosition.Copilot),
-                new CrewMember("Ivan", "Omazic", "ivan.omazic@example.com", "ivanlozinka", new DateOnly(1989, 5, 7), Gender.Male, CrewPosition.Copilot)
+                new CrewMember("Ilva", "Peric", "ilva.peric@gmail.com", "ilvalozinka", new DateOnly(1992, 4, 12), Gender.Female, CrewPosition.Stewardess),
+                new CrewMember("Mate", "Matic", "mate.matic@gmail.com", "matelozinka", new DateOnly(1987, 9, 3), Gender.Male, CrewPosition.Pilot),
+                new CrewMember("Petra", "Karadza", "petra.karadza@gmail.com", "petralozinka", new DateOnly(1995, 2, 17), Gender.Female, CrewPosition.Stewardess),
+                new CrewMember("Barbara", "Tomas", "barbara.tomas@gmail.com", "barbaralozinka", new DateOnly(1990, 8, 22), Gender.Female, CrewPosition.Stewardess),
+                new CrewMember("Monika", "Dzaja", "monika.dzaja@gmail.com", "monikalozinka", new DateOnly(1994, 11, 5), Gender.Female, CrewPosition.Stewardess),
+                new CrewMember("Nika", "Istuk", "nika.istuk@gmail.com", "nikalozinka", new DateOnly(1998, 1, 14), Gender.Female, CrewPosition.Stewardess),
+                new CrewMember("Nika", "Vukadin", "nika.vukadin@gmail.com", "nikalozinka", new DateOnly(1997, 6, 29), Gender.Female, CrewPosition.Pilot),
+                new CrewMember("Nikolina", "Tokic", "nikolina.tokic@gmail.com", "nikolinalozinka", new DateOnly(1993, 12, 20), Gender.Female, CrewPosition.Stewardess),
+                new CrewMember("Zoran", "Karaula", "zoran.karaula@gmail.com", "zoranlozinka", new DateOnly(1985, 3, 10), Gender.Male, CrewPosition.Copilot),
+                new CrewMember("Ivan", "Omazic", "ivan.omazic@gmail.com", "ivanlozinka", new DateOnly(1989, 5, 7), Gender.Male, CrewPosition.Copilot)
             };
         }
 

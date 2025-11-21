@@ -11,6 +11,18 @@
       "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\initializedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,24 +35,12 @@
       "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|solutionrelative:internship-3-oop\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B546EA22-196E-4C7C-8CBE-32858D4C1532}|Internship-3-OOP\\Internship-3-OOP.csproj|c:\\users\\korisnik\\source\\repos\\internship-3-oop\\internship-3-oop\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,7 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Airplane.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Airplane.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Airplane.cs",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Helper.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Helper.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Helper.cs",
@@ -104,13 +104,14 @@
               "RelativeDocumentMoniker": "Internship-3-OOP\\InitializeData.cs",
               "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\InitializeData.cs",
               "RelativeToolTip": "Internship-3-OOP\\InitializeData.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T12:51:49.901Z"
+              "WhenOpened": "2025-11-21T12:51:49.901Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Flight.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Flight.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Flight.cs",
@@ -126,16 +127,16 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Program.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Program.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Program.cs",
-              "RelativeToolTip": "Internship-3-OOP\\Program.cs",
-              "ViewState": "AgIAACkEAAAAAAAAAAAAACkEAABBAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Program.cs*",
+              "RelativeToolTip": "Internship-3-OOP\\Program.cs*",
+              "ViewState": "AgIAAHEEAAAAAAAAAAAAAHYEAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T17:47:34.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Reservation.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Reservation.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Reservation.cs",
@@ -147,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Enums.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Enums.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Enums.cs",
@@ -155,11 +156,12 @@
               "RelativeToolTip": "Internship-3-OOP\\Enums.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T18:22:43.785Z"
+              "WhenOpened": "2025-11-16T18:22:43.785Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Passenger.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Passenger.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Passenger.cs",
@@ -171,27 +173,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "CrewMember.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\CrewMember.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\CrewMember.cs",
               "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\CrewMember.cs",
               "RelativeToolTip": "Internship-3-OOP\\CrewMember.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABoAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T21:15:44.225Z"
+              "WhenOpened": "2025-11-16T21:15:44.225Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Crew.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Crew.cs",
               "RelativeDocumentMoniker": "Internship-3-OOP\\Crew.cs",
               "ToolTip": "C:\\Users\\Korisnik\\source\\repos\\Internship-3-OOP\\Internship-3-OOP\\Crew.cs",
               "RelativeToolTip": "Internship-3-OOP\\Crew.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAAB4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAABYAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T21:28:11.598Z"
+              "WhenOpened": "2025-11-16T21:28:11.598Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

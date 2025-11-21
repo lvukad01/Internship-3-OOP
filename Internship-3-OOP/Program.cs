@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace Internship_3_OOP
 {
@@ -30,7 +32,7 @@ namespace Internship_3_OOP
                         FlightMenu(flights,airplanes,crews,passengers);
                         break;
                     case 3:
-                        AirplaneMenu(airplanes);
+                        AirplaneMenu(airplanes,flights);
                         break;
                     default:
                         break;
@@ -788,7 +790,7 @@ namespace Internship_3_OOP
             Console.WriteLine("Brisanje leta uspješno, pritisnite bilo koju tipku za povratak");
             Console.ReadKey();
         }
-        static void AirplaneMenu(List<Airplane> airplanes)
+        static void AirplaneMenu(List<Airplane> airplanes,List<Flight> flights)
         {
             int input = 0;
             while (input != 6)
@@ -808,7 +810,7 @@ namespace Internship_3_OOP
                         SearchAirplane(airplanes);
                         break;
                     case 4:
-                        DeleteAirplane(airplanes);
+                        DeleteAirplane(airplanes,flights);
                         break;
                     case 5:
                         Console.WriteLine("Povratak u glavni izbornik, pritisnite bilo koju tipku");
@@ -928,10 +930,175 @@ namespace Internship_3_OOP
         }
         static void SearchAirplane(List<Airplane> airplanes)
         {
+            Console.Clear();
+            char input = ' ';
+            Console.WriteLine("Pretraživanje aviona:\r\na)po ID-u\r\nb)po nazivu\r\n0)Povratak u prethodni izbornik");
+            while (input != '0')
+            {
+
+                input = Helper.ReadChar("");
+                switch (input)
+                {
+                    case 'a':
+                        SearchAirplaneId(airplanes);
+                        return;
+                    case 'b':
+                        SearchAirplaneName(airplanes);
+                        return;
+                    case '0':
+                        break;
+                    default:
+                        Console.WriteLine("Pogrešan unos, unesite a ili b, za povratak unesite 0 ");
+                        break;
+                }
+
+            }
+            Console.WriteLine("Povratak u prethodni izbornik,pritisnite bilo koju tipku");
+            Console.ReadKey();
+        }      
+        static void SearchAirplaneId(List<Airplane> airplanes)
+        {
+            Console.Clear();
+            int airplaneID = Helper.ReadInt("Pretraživanje aviona po ID-u\n\nUnesite ID aviona koji želite pretražiti:\n");
+
+            Airplane chosenAirplane = airplanes.FirstOrDefault(f => f.DisplayId == airplaneID);
+
+            if (chosenAirplane != null)
+            {
+                Console.WriteLine("ID - Naziv - Godina Proizvodnje - Broj letova");
+                chosenAirplane.Print();
+                Console.WriteLine("\nKategorije sjedala:\r\n");
+                foreach (var c in chosenAirplane.Seat)
+                {
+                    Console.WriteLine($"{(int)c.Key+1}.{c.Key} - broj sjedala: {c.Value}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji avion s tim ID-om");
+            }
+            Console.WriteLine("\nPritisnite bilo koju tipku za povratak u izbornik letova");
+            Console.ReadKey();
+        }
+        static void SearchAirplaneName(List<Airplane> airplanes)
+        {
+            Console.Clear();
+            string airplaneName = Helper.ReadNonEmpty("Pretraživanje aviona po nazivu\n\nUnesite naziv aviona koji želite pretražiti:\n");
+            Airplane chosenAirplane = airplanes.FirstOrDefault(a=> string.Equals(airplaneName.Trim(), a.Name.Trim(), StringComparison.OrdinalIgnoreCase));
+            if (chosenAirplane != null)
+            {
+                Console.WriteLine("ID - Naziv - Godina Proizvodnje - Broj letova");
+                chosenAirplane.Print();
+                Console.WriteLine("\nKategorije sjedala:\r\n");
+                foreach (var c in chosenAirplane.Seat)
+                {
+                    Console.WriteLine($"{(int)c.Key+1}.{c.Key} - broj sjedala: {c.Value}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji avion s tim ID-om");
+            }
+            Console.WriteLine("\nPritisnite bilo koju tipku za povratak u prethodni izbornik");
+            Console.ReadKey();
 
         }
-        static void DeleteAirplane(List<Airplane> airplanes)
+        static void DeleteAirplane(List<Airplane> airplanes,List<Flight> flights)
         {
+            Console.Clear();
+            char input = ' ';
+            Console.WriteLine("Brisanje aviona:\r\na)po ID-u\r\nb)po nazivu\r\n0)Povratak u prethodni izbornik");
+            while (input != '0')
+            {
+
+                input = Helper.ReadChar("");
+                switch (input)
+                {
+                    case 'a':
+                        DeleteAirplaneId(airplanes,flights);
+                        return;
+                    case 'b':
+                        DeleteAirplaneName(airplanes,flights);
+                        return;
+                    case '0':
+                        break;
+                    default:
+                        Console.WriteLine("Pogrešan unos, unesite a ili b, za povratak unesite 0 ");
+                        break;
+                }
+
+            }
+            Console.WriteLine("Povratak u prethodni izbornik,pritisnite bilo koju tipku");
+            Console.ReadKey();
+        }
+        static void DeleteAirplaneId(List<Airplane> airplanes,List<Flight> flights)
+        {
+            Console.Clear();
+            int airplaneID = Helper.ReadInt("Brisanje aviona po ID-u\n\nUnesite ID aviona koji želite izbrisati:\n");
+
+            Airplane chosenAirplane = airplanes.FirstOrDefault(f => f.DisplayId == airplaneID);
+
+            if (chosenAirplane != null)
+            {
+                Console.WriteLine($"Jeste li sigurni da želite izbrisati avion {chosenAirplane.Name}?(y/n)");
+                char choice = ' ';
+                choice = Helper.ReadChar("");
+                if (choice != 'y')
+                {
+                    Console.WriteLine("Brisanje otkazano, pritisnite bilo koju tipku za povratak u prethodni izbornik");
+                    Console.ReadKey();
+                    return;
+                }
+                var availableAirplanes = airplanes.Where(a => a != chosenAirplane).ToList();
+                foreach (var flight in flights.Where(f => f.Airplane == chosenAirplane))
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Odaberite avion koji će zamijeniti obrisani avion za let {flight.Name}\n");
+                    flight.Airplane = ChooseAirplane(availableAirplanes);
+                }
+                airplanes.Remove(chosenAirplane);
+                Console.WriteLine("Avion uspješno izbrisan");
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji avion s tim ID-om");
+            }
+            Console.WriteLine("\nPritisnite bilo koju tipku za povratak u izbornik letova");
+            Console.ReadKey();
+        }
+        static void DeleteAirplaneName(List<Airplane> airplanes, List<Flight> flights)
+        {
+            Console.Clear();
+            string airplaneName = Helper.ReadNonEmpty("Brisanje aviona po nazivu\n\nUnesite naziv aviona koji želite izbrisati:\n");
+            Airplane chosenAirplane = airplanes.FirstOrDefault(a => string.Equals(airplaneName.Trim(), a.Name.Trim(), StringComparison.OrdinalIgnoreCase));
+            if (chosenAirplane != null)
+            {
+                Console.WriteLine($"Jeste li sigurni da želite izbrisati avion {chosenAirplane.Name}?(y/n)");
+                char choice = ' ';
+                choice = Helper.ReadChar("");
+                if (choice != 'y')
+                {
+                    Console.WriteLine("Brisanje otkazano, pritisnite bilo koju tipku za povratak u prethodni izbornik");
+                    Console.ReadKey();
+                    return;
+                }
+                var availableAirplanes = airplanes.Where(a => a != chosenAirplane).ToList();
+                foreach (var flight in flights.Where(f => f.Airplane == chosenAirplane))
+                {
+                    Console.Clear();
+                    Console.WriteLine($"\nOdaberite avion koji će zamijeniti obrisani avion za let {flight.Name}\n\n");
+                    flight.Airplane = ChooseAirplane(availableAirplanes);
+                }
+                airplanes.Remove(chosenAirplane);
+                Console.Clear();
+                Console.WriteLine("Avion uspješno izbrisan");
+            }
+            else
+            {
+                Console.WriteLine("Ne postoji avion s tim ID-om");
+            }
+            Console.WriteLine("\nPritisnite bilo koju tipku za povratak u prethodni izbornik");
+            Console.ReadKey();
 
         }
     }

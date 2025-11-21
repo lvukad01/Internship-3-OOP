@@ -113,7 +113,7 @@ namespace Internship_3_OOP
                     Crews[0]),
 
                 new Flight("Split - Dubrovnik",
-                    new DateTime(2026, 8, 2, 6, 20, 0),
+                    new DateTime(2025, 8, 2, 6, 20, 0),
                     new DateTime(2025, 8, 2, 7, 05, 0),
                     165,
                     Airplanes[2],

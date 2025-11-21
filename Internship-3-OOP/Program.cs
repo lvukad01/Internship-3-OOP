@@ -144,8 +144,8 @@ namespace Internship_3_OOP
                 return;
 
             }
-            Passenger p = new Passenger(name, surname, email, password, birthday, gender);
-            passengers.Add(p);
+            Passenger passenger = new Passenger(name, surname, email, password, birthday, gender);
+            passengers.Add(passenger);
             Console.WriteLine("Registracija dovršena, pritisnite bilo koju tipku za povratak u prethudni izbornik.");
             Console.ReadKey();
             return;
@@ -1247,6 +1247,98 @@ namespace Internship_3_OOP
 
         static void NewCrewMember(List<CrewMember> crewMembers)
         {
+            Console.Clear();
+            string name = null, surname = null, email = null, password = null;
+            int input = 0;
+            DateOnly birthday = DateOnly.MinValue;
+
+            name = Helper.ReadNonEmpty("Unesite ime: ");
+
+            surname = Helper.ReadNonEmpty("Unesite prezime: ");
+            while (email == null)
+            {
+                email = Helper.ReadNonEmpty("Unesite email: ");
+                if (!Helper.IsValidEmail(email))
+                    Console.WriteLine("Neispravan format emaila,pokušajte ponovo.");
+
+                foreach (var crewMember in crewMembers)
+                {
+
+                    if (string.Equals(crewMember.Email, email, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("Član s tim mailom već postoji.\nAko želite odustati unesite 0, za ponovni pokušaj registracije unesite bilo koji drugi broj");
+                        {
+                            input = Helper.ReadInt("");
+                            if (input == '0')
+                            {
+                                Console.WriteLine("Povratak u prethodni izbornik, pritisnite bilo koju tipku");
+                                Console.ReadKey();
+                                return;
+                            }
+                            else
+                                email = null;
+                        }
+
+                    }
+                }
+            }
+            while (password == null)
+            {
+                password = Helper.ReadNonEmpty("Unesite lozinku: ");
+                if (password.Length < 8)
+                {
+                    Console.WriteLine("Lozinka mora imati min 8 znakova\n");
+                    password = null;
+                }
+            }
+            while (birthday == DateOnly.MinValue)
+            {
+                birthday = Helper.ReadDate("Unesi datum rođenja (yyyy-mm-dd): ");
+                if (birthday.Year < 1925 || birthday.Year > 2025)
+                {
+                    Console.WriteLine("Unesite godinu veću od 1925 i manju od 2025");
+                    birthday = DateOnly.MinValue;
+                }
+            }
+            Gender gender = ChooseGender();
+            CrewPosition position=CrewPosition.Steward;
+            Console.WriteLine("Odaberite poziciju člana:\r\n1.Pilot\r\n2.Copilot\r\n3.Stjuard/Stjuardesa");
+            while (input == 0)
+            {
+                input = Helper.ReadInt("");
+                switch (input)
+                {
+                    case 1:
+                        position = CrewPosition.Pilot;
+                        break;
+                    case 2:
+                        position = CrewPosition.Copilot;
+                        break;
+                    case 3:
+                        if (gender == Gender.Female)
+                            position = CrewPosition.Stewardess;
+                        break;
+                    default:
+                        Console.WriteLine("Pogrešan unos, unesite 1,2 ili 3");
+                        input = 0;
+                        break;
+                }
+            }
+            Console.Write($"Želite li nastaviti s dodavanjem člana {name} {surname}?(y/n)");
+            var confirm = Helper.ReadChar("");
+            confirm = char.ToLower(confirm);
+            if (confirm != 'y')
+            {
+                Console.WriteLine("Dodavaje člana otkazano, pritisnite bilo koju tipku za povratak u prethodni izbornik.");
+                Console.ReadKey();
+                return;
+
+            }
+            CrewMember crewMember= new CrewMember(name, surname, email, password, birthday, gender,position);
+            crewMembers.Add(crewMember);
+            Console.WriteLine("Registracija dovršena, pritisnite bilo koju tipku za povratak u prethodni izbornik.");
+            Console.ReadKey();
+            return;
         }
     }
 }

@@ -7,11 +7,12 @@ namespace Internship_3_OOP
         static void Main()
         {
             Console.Clear();
-            var passengers = InitializeData.Passengers;
             var crewMembers = InitializeData.CrewMembers;
             var airplanes = InitializeData.Airplanes;
             var crews = InitializeData.Crews;
             var flights = InitializeData.Flights;
+            var passengers = InitializeData.Passengers;
+
 
             int input = 0;
             while (input != 5)
@@ -19,7 +20,7 @@ namespace Internship_3_OOP
                 Console.Clear();
                 Console.WriteLine("KONZOLNA APLIKACIJA ZA UPRAVLJANJE AERODROMOM\r\n");
                 Console.WriteLine("1 - Putnici\r\n2 - Letovi\r\n3 – Avioni\r\n4 – Posada\r\n5 – Izlaz iz programa\r\n");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 switch (input)
                 {
                     case 1:
@@ -27,6 +28,9 @@ namespace Internship_3_OOP
                         break;
                     case 2:
                         FlightMenu(flights,airplanes,crews,passengers);
+                        break;
+                    case 3:
+                        AirplaneMenu(airplanes);
                         break;
                     default:
                         break;
@@ -43,7 +47,7 @@ namespace Internship_3_OOP
             {
                 Console.Clear();
                 Console.WriteLine("PUTNICI\r\n1-Registracija\r\n2-Prijava\r\n0-Povratak u glavni izbornik");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 switch (input)
                 {
                     case 1:
@@ -71,13 +75,13 @@ namespace Internship_3_OOP
             int input = 0;
             DateOnly birthday = DateOnly.MinValue;
 
-            name = ReadNonEmpty("Unesite ime: ");
+            name = Helper.ReadNonEmpty("Unesite ime: ");
 
-            surname = ReadNonEmpty("Unesite prezime: ");
+            surname = Helper.ReadNonEmpty("Unesite prezime: ");
             while (email == null)
             {
-                email = ReadNonEmpty("Unesite email: ");
-                if (!IsValidEmail(email))
+                email = Helper.ReadNonEmpty("Unesite email: ");
+                if (!Helper.IsValidEmail(email))
                     Console.WriteLine("Neispravan format emaila,pokušajte ponovo.");
 
                 foreach (var passenger in passengers)
@@ -87,7 +91,7 @@ namespace Internship_3_OOP
                     {
                         Console.WriteLine("Korisnik s tim mailom već postoji.\nAko želite ići na prijavu unesite 1,za odustajanje unesite 0, a za ponovni pokušaj registracije unesite bilo koji drugi broj");
                         {
-                            input = ReadInt("");
+                            input = Helper.ReadInt("");
                             if (input == '0')
                             {
                                 PassengerLogIn(passengers, flights);
@@ -108,7 +112,7 @@ namespace Internship_3_OOP
             }
             while (password == null)
             {
-                password =ReadNonEmpty("Unesite lozinku: ");
+                password =Helper.ReadNonEmpty("Unesite lozinku: ");
                 if (password.Length < 8)
                 {
                     Console.WriteLine("Lozinka mora imati min 8 znakova\n");
@@ -117,7 +121,7 @@ namespace Internship_3_OOP
             }
             while (birthday == DateOnly.MinValue)
             {
-                birthday = ReadDate("Unesi datum rođenja (yyyy-mm-dd): ");
+                birthday = Helper.ReadDate("Unesi datum rođenja (yyyy-mm-dd): ");
                 if (birthday.Year < 1925 || birthday.Year > 2025)
                 {
                     Console.WriteLine("Unesite godinu veću od 1925 i manju od 2025");
@@ -126,7 +130,7 @@ namespace Internship_3_OOP
             }            
             Gender gender = ChooseGender();
             Console.Write($"Želite li nastaviti s registracijom korisnika {name} {surname}?(y/n)");
-            var confirm = ReadChar("");
+            var confirm = Helper.ReadChar("");
             confirm = char.ToLower(confirm);
             if (confirm != 'y')
             {
@@ -170,8 +174,8 @@ namespace Internship_3_OOP
             Passenger passenger = null;
             while (input != 0)
             {
-                email = ReadNonEmpty("Email: ");
-                password = ReadNonEmpty("Lozinka: ");
+                email = Helper.ReadNonEmpty("Email: ");
+                password = Helper.ReadNonEmpty("Lozinka: ");
                 foreach (var user in passengers)
                 {
                     if (string.Equals(user.Email, email, StringComparison.OrdinalIgnoreCase) && string.Equals(user.Password, password))
@@ -183,7 +187,7 @@ namespace Internship_3_OOP
                 if (input != 0)
                 {
                     Console.WriteLine("Pogrešna lozinka ili korisnički račun ne postoji, ako želite odustati od prijave unesite 0,za nastavak unesite bilo koji drugi broj");
-                    input = ReadInt("");
+                    input = Helper.ReadInt("");
                     if (input == 0)
                     {
                         Console.WriteLine("Vraćanje u početni izbornik,pritisnite bilo koju tipku");
@@ -198,7 +202,7 @@ namespace Internship_3_OOP
             {
                 Console.Clear();
                 Console.WriteLine("Odabarite uslugu:\r\n1. Prikaz svih rezerviranih letova\r\n2.Odabir leta\r\n3.Pretraživanje letova\r\n4.Otkazivanje leta\r\n5.Povratak na glavni izbornik ");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 switch (input)
                 {
                     case 1:
@@ -268,12 +272,12 @@ namespace Internship_3_OOP
             Console.WriteLine("Unesite ID leta koji želite rezervirati,ako želite odustati unesite 0: ");
             while (input != 0)
             {
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 chosenFlight = availableFlights.FirstOrDefault(f => f.DisplayId == input);
                 if (chosenFlight == null)
                 {
                     Console.WriteLine("Let s tim ID-om ne postoji, ako želite odustati od odabira unesite 0,za nastavak unesite bilo koji drugi broj");
-                    input = ReadInt("");
+                    input = Helper.ReadInt("");
                     if (input == 0)
                     {
                         Console.WriteLine("Vraćanje u prethodni izbornik, pritisnite bilo koju tipku");
@@ -317,7 +321,7 @@ namespace Internship_3_OOP
                 }
                SeatCategory chosenSeat=(SeatCategory)(input-1);
             Console.WriteLine($"Jeste li sigurni da želite rezervirati sjedalo kategorije {chosenSeat}?(y/n)");
-            choice = ReadChar("");
+            choice = Helper.ReadChar("");
             Reservation reserve=new Reservation(flight.Id,chosenSeat);
             if (choice == 'y')
             {
@@ -339,7 +343,7 @@ namespace Internship_3_OOP
             var choice = '0';
             while (choice == '0')
             {
-                choice = ReadChar("");
+                choice = Helper.ReadChar("");
                 switch (choice)
                 {
                     case 'a':
@@ -358,7 +362,7 @@ namespace Internship_3_OOP
         }
         static void PassengerSearchFlightId(Passenger passenger, List<Flight> flights)
         {
-            int flightID = ReadInt("Unesite ID leta koji želite pretražiti:\n");
+            int flightID = Helper.ReadInt("Unesite ID leta koji želite pretražiti:\n");
 
             Flight chosenFlight = flights.FirstOrDefault(f => f.DisplayId == flightID);
 
@@ -377,7 +381,7 @@ namespace Internship_3_OOP
         }
         static void PassengerSearchFlightName(Passenger passenger, List<Flight> flights)
         {
-            string flightName = ReadNonEmpty("Unesite naziv leta koji želite pretražiti:\n");
+            string flightName = Helper.ReadNonEmpty("Unesite naziv leta koji želite pretražiti:\n");
             Flight chosenFlight=flights.FirstOrDefault(f=>string.Equals(flightName.Trim(),f.Name.Trim(), StringComparison.OrdinalIgnoreCase));
             if (chosenFlight != null)
             {
@@ -416,12 +420,12 @@ namespace Internship_3_OOP
                     flight.Print();
                 }
                 Console.WriteLine("Unesite ID leta koji želite izbrisati,ako želite odustati unesite 0: ");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 chosenFlight =flights.FirstOrDefault(f => f.DisplayId == input);
                 if (chosenFlight == null||!passenger.Flights.Any(f => f.FlightId == chosenFlight.Id))
                 { 
                     Console.WriteLine("Let s tim ID-om nije na popisu, ako želite odustati od odabira unesite 0,za nastavak unesite bilo koji drugi broj");
-                    input = ReadInt("");
+                    input = Helper.ReadInt("");
                     if (input == 0)
                     {
                         Console.WriteLine("Vraćanje u prethodni izbornik, pritisnite bilo koju tipku");
@@ -448,7 +452,7 @@ namespace Internship_3_OOP
             Reservation deleteReservation = passenger.Flights.FirstOrDefault(f => f.FlightId == chosenFlight.Id);
 
             Console.WriteLine($"Jeste li sigurni da želite izbrisati rezervaciju za let {chosenFlight.Name}?(y/n)");
-            choice = ReadChar("");
+            choice = Helper.ReadChar("");
             if (choice != 'y')
                 Console.WriteLine("Brisanje rezervacije otkazano");
             else
@@ -467,7 +471,7 @@ namespace Internship_3_OOP
             {
                 Console.Clear();
                 Console.WriteLine("Letovi:\r\n1. Prikaz svih letova\r\n2.Dodavanje leta\r\n3.Pretraživanje letova\r\n4.Uređivanje leta\r\n5.Brisanje leta\r\n6.Povratak na glavni izbornik ");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 switch (input)
                 {
                     case 1:
@@ -514,20 +518,20 @@ namespace Internship_3_OOP
             Airplane chosenAirplane = null;
             Crew chosenCrew = null;
             Flight addFlight = null;
-            departureTown = ReadNonEmpty("Unesite naziv grada polaska: ");
-            arrivalTown = ReadNonEmpty("Unesite naziv grada u koji putujete: ");
+            departureTown = Helper.ReadNonEmpty("Unesite naziv grada polaska: ");
+            arrivalTown = Helper.ReadNonEmpty("Unesite naziv grada u koji putujete: ");
             name = departureTown + " - " + arrivalTown;
             while (true)
             {
-                departure = ReadDateTime("Unesite datum i vrijeme polaska u formatu (dd.MM.yyyy HH:mm) ");
-                arrival = ReadDateTime("Unesite datum i vrijeme polaska u formatu (dd.MM.yyyy HH:mm)");
+                departure = Helper.ReadDateTime("Unesite datum i vrijeme polaska u formatu (dd.MM.yyyy HH:mm) ");
+                arrival = Helper.ReadDateTime("Unesite datum i vrijeme polaska u formatu (dd.MM.yyyy HH:mm)");
 
                 if (arrival <= departure)
                     Console.WriteLine("Vrijeme dolaska mora biti nakon vremena polaska, pokušajte ponovo\n");
                 else
                     break;
             }
-            distance = ReadDouble("Unesite udaljenost u km: ");
+            distance = Helper.ReadDouble("Unesite udaljenost u km: ");
             chosenAirplane = ChooseAirplane(airplanes);
             chosenCrew = ChooseCrew(crews);
             addFlight=new Flight(name,departure,arrival,distance, chosenAirplane,chosenCrew);
@@ -548,7 +552,7 @@ namespace Internship_3_OOP
             while (input == 0)
             {
                 Console.WriteLine("Odaberite avion za let");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 chosenAirplane = airplanes.FirstOrDefault(a => a.DisplayId == input);
                 if (chosenAirplane == null)
                 {
@@ -570,7 +574,7 @@ namespace Internship_3_OOP
             while (input == 0)
             {
                 Console.WriteLine("Odaberite posadu za let");
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 chosenCrew= crews.FirstOrDefault(c => c.DisplayId == input);
                 if (chosenCrew == null)
                 {
@@ -588,7 +592,7 @@ namespace Internship_3_OOP
             while(input!='0')
             {
 
-                input = ReadChar("");
+                input = Helper.ReadChar("");
                 switch(input)
                 {
                     case 'a':
@@ -611,7 +615,7 @@ namespace Internship_3_OOP
         static void SearchFlightId(List<Flight> flights)
         {
             Console.Clear();
-            int flightID = ReadInt("Pretraživanje leta po ID-u\n\nUnesite ID leta koji želite pretražiti:\n");
+            int flightID = Helper.ReadInt("Pretraživanje leta po ID-u\n\nUnesite ID leta koji želite pretražiti:\n");
 
             Flight chosenFlight = flights.FirstOrDefault(f => f.DisplayId == flightID);
 
@@ -630,7 +634,7 @@ namespace Internship_3_OOP
         static void SearchFlightName(List<Flight> flights)
         {
             Console.Clear();
-            string flightName = ReadNonEmpty("Pretraživanje leta po nazivu\n\nUnesite naziv leta koji želite pretražiti:\n");
+            string flightName = Helper.ReadNonEmpty("Pretraživanje leta po nazivu\n\nUnesite naziv leta koji želite pretražiti:\n");
             Flight chosenFlight = flights.FirstOrDefault(f => string.Equals(flightName.Trim(), f.Name.Trim(), StringComparison.OrdinalIgnoreCase));
             if (chosenFlight != null)
             {
@@ -650,7 +654,7 @@ namespace Internship_3_OOP
             Console.Clear();
             var input = 0;
             char? choice = null;
-            input = ReadInt("Unesite ID leta kojeg želite urediti: ");
+            input = Helper.ReadInt("Unesite ID leta kojeg želite urediti: ");
             var chosenFlight=flights.FirstOrDefault(f=>f.DisplayId == input);
             if (chosenFlight != null)
             {
@@ -659,31 +663,31 @@ namespace Internship_3_OOP
                 return;
             }
             Console.WriteLine($"Uređivanje leta {chosenFlight.Name}\r\na)Uredi vrijeme polaska\r\nb)Uredi vrijeme dolaska\r\nc)Promijeni posadud)Sve od navedenog0)Odustani");
-            choice = ReadChar("");
+            choice = Helper.ReadChar("");
             DateTime departure = chosenFlight.Departure;
             DateTime arrival=chosenFlight.Arrival;
             Crew crew = chosenFlight.Crew;
             while (choice != '0')
             {
-                choice = ReadChar("");
+                choice = Helper.ReadChar("");
                 switch (choice)
                 {
                     case 'a':
                         Console.WriteLine($"\nStaro vrijeme polaska: {chosenFlight.Departure}\nNovo vrijeme polaska: ");
-                        departure = ReadDateTime("");
+                        departure = Helper.ReadDateTime("");
                         break;
                     case 'b':
                         Console.WriteLine($"\nStaro vrijeme dolaska: {chosenFlight.Arrival}\nNovo vrijeme dolaska: ");
-                        arrival = ReadDateTime("");
+                        arrival = Helper.ReadDateTime("");
                         break;
                     case 'c':
                        crew= EditFlightCrew(chosenFlight,crews);
                         break;
                     case 'd':
                         Console.WriteLine($"\nStaro vrijeme polaska: {chosenFlight.Departure}\nNovo vrijeme polaska: ");
-                        departure = ReadDateTime("");
+                        departure = Helper.ReadDateTime("");
                         Console.WriteLine($"\nStaro vrijeme dolaska: {chosenFlight.Arrival}\nNovo vrijeme dolaska: ");
-                        arrival = ReadDateTime("");
+                        arrival = Helper.ReadDateTime("");
                         crew = EditFlightCrew(chosenFlight, crews);
                         break;
                     case '0':
@@ -695,9 +699,13 @@ namespace Internship_3_OOP
                 }
             }
             Console.WriteLine($"Želite li spremiti unesene promjene za let {chosenFlight}? (y/n)");
-            choice = ReadChar("");
+            choice = Helper.ReadChar("");
             if (choice != 'y')
+            {
+                Console.WriteLine("Promjene otkazane, pritisnite bilo koju tipku za povratak u prethodni izbornik");
+                Console.ReadKey();
                 return;
+            }
             chosenFlight.Departure= departure;
             chosenFlight.Arrival= arrival;
             chosenFlight.Crew= crew;
@@ -721,7 +729,7 @@ namespace Internship_3_OOP
             Console.WriteLine("Unesite Id posade koju želite odabrati: ");
             while (true)
             {
-                input = ReadInt("");
+                input = Helper.ReadInt("");
                 crew = crews.FirstOrDefault(c => c.DisplayId == input);
                 if(crew==null)
                 {
@@ -737,7 +745,7 @@ namespace Internship_3_OOP
             Console.Clear();
             var input = 0;
             char? choice = null;
-            input = ReadInt("Unesite ID leta kojeg želite izbrisati: ");
+            input = Helper.ReadInt("Unesite ID leta kojeg želite izbrisati: ");
             var chosenFlight = flights.FirstOrDefault(f => f.DisplayId == input);
             if (chosenFlight != null)
             {
@@ -765,7 +773,7 @@ namespace Internship_3_OOP
                 return;
             }
             Console.WriteLine($"Jeste li sigurni da želite izbrisati let {chosenFlight.Name}? (y/n)");
-            choice = ReadChar("");
+            choice = Helper.    ReadChar("");
             if (choice != 'y') ;
                 Console.WriteLine("Brisanje leta otkazano, povratak na prethodni izbornik");
             foreach(var passenger in passengers)
@@ -780,97 +788,151 @@ namespace Internship_3_OOP
             Console.WriteLine("Brisanje leta uspješno, pritisnite bilo koju tipku za povratak");
             Console.ReadKey();
         }
-
-        static double ReadDouble(string message)
+        static void AirplaneMenu(List<Airplane> airplanes)
         {
-            Console.Write(message);
-            double number;
-
-            while (!double.TryParse(Console.ReadLine(), out number)||number<0)
-                Console.Write("Neispravan unos, pokušajte ponovno: ");
-
-            return number;
-        }
-        static DateOnly ReadDate(string message)
-        {
-            Console.Write(message);
-            DateOnly date;
-
-            while (!DateOnly.TryParse(Console.ReadLine(), out date))
-                Console.Write("Neispravan datum, unesite u formatu yyyy-mm-dd: ");
-
-            return date;
-        }
-        static DateTime ReadDateTime(string message)
-        {
-            Console.Write(message);
-            DateTime date;
-
-            while (!DateTime.TryParse(Console.ReadLine(), out date))
-                Console.Write("Neispravan datum, unesite u formatu yyyy-mm-dd hour:min : ");
-
-            return date;
-        }
-        static TimeOnly ReadTime(string message)
-        {
-            Console.Write(message);
-            TimeOnly time;
-
-            while (!TimeOnly.TryParse(Console.ReadLine(), out time))
-                Console.Write("Neispravan unos sati, unesite u formatu (hour:min): ");
-
-            return time;
-        }
-        static string ReadNonEmpty(string message)
-        {
-            Console.Write(message);
-            string input = Console.ReadLine();
-
-            while (string.IsNullOrWhiteSpace(input))
+            int input = 0;
+            while (input != 6)
             {
-                Console.Write("Polje ne može biti prazno, pokušajte ponovno: ");
-                input = Console.ReadLine();
-            }
-
-            return input;
-        }
-        static int ReadInt(string message)
-        {
-            Console.Write(message);
-            int value;
-
-            while (!int.TryParse(Console.ReadLine(), out value))
-            {
-                Console.Write("Neispravan unos, unesite cijeli broj: ");
-            }
-
-            return value;
-        }
-        static char ReadChar(string message)
-        {
-            Console.Write(message);
-            string input = Console.ReadLine();
-
-            while (string.IsNullOrWhiteSpace(input) || input.Length != 1)
-            {
-                Console.Write("Neispravan unos, unesite samo jedan znak: ");
-                input = Console.ReadLine();
-            }
-
-            return input[0];
-        }
-        public static bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
+                Console.Clear();
+                Console.WriteLine("Letovi:\r\n1. Prikaz svih aviona\r\n2.Dodavanje novog aviona\r\n3.Pretraživanje aviona\r\n4.Brisanje aviona\r\n5.Povratak na glavni izbornik ");
+                input = Helper.ReadInt("");
+                switch (input)
+                {
+                    case 1:
+                        AirplaneList(airplanes);
+                        break;
+                    case 2:
+                        AddAirplane(airplanes);
+                        break;
+                    case 3:
+                        SearchAirplane(airplanes);
+                        break;
+                    case 4:
+                        DeleteAirplane(airplanes);
+                        break;
+                    case 5:
+                        Console.WriteLine("Povratak u glavni izbornik, pritisnite bilo koju tipku");
+                        Console.ReadKey();
+                        return;
+                    default:
+                        Console.WriteLine("Pogrešan unos, unesite neki od ponuđenih brojeva");
+                        Console.ReadKey();
+                        break;
+                }
             }
         }
+        static void AirplaneList(List<Airplane> airplanes)
+        {
+            Console.Clear();
+            Console.WriteLine("ID - Naziv - Godina Proizvodnje - Broj letova");
+            foreach (var airplane in airplanes)
+            {
+                airplane.Print();
+            }
+            Console.WriteLine("Za povratak u prethodni izbornik, pritisnite bilo koju tipku");
+            Console.ReadKey();
+        }
+        static void AddAirplane(List<Airplane> airplanes)
+        {
+            Console.Clear();
+            string name = null;
+            int year = 0;
+            var input = -1;
+            int numberofFlights = 0;
+            Dictionary<SeatCategory, int> seat = null;
+            int numberOfCategories = 0;
+            Airplane newAirplane=null;
+            while (input != 0)
+            {
+                name = Helper.ReadNonEmpty("Unesite naziv aviona: ");
+                foreach (var airplane in airplanes)
+                {
+                    if (string.Equals(airplane.Name, name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("Uneseni naziv aviona već postoji, ako želite odustati unesite 0, za ponovan pokušaj unesite bilo koji drugi broj ");
+                        input = Helper.ReadInt("");
+                    }
+                    else
+                        input = 0;
+                }
+            }
+            while (true)
+            {
+                year = Helper.ReadInt($"Unesite godinu proizvodnje aviona {name}: ");
+                if (year > 2025 || year < 1910)
+                {
+                    Console.WriteLine("Unesena godina ne može biti manja od 1910 ni veća od 2025");
+                    continue;
+                }
+                break;
+            }
+            numberofFlights = Helper.ReadInt("Unesite broj letova: ");
+            while (true)
+            {
+                numberOfCategories = Helper.ReadInt("Koliko kategorija sjedala let posjeduje?: ");
+                if (numberOfCategories > Enum.GetValues(typeof(SeatCategory)).Length)
+                {
+                    Console.WriteLine($"Ne postoji toliko kategorija, broj mora biti manji od {Enum.GetValues(typeof(SeatCategory)).Length}");
+                    continue;
+                }
+                break;
+            }
+            char choice = ' ';
+            Console.WriteLine($"Želite li dodati avion {name}? (y/n)");
+            choice = Helper.ReadChar("");
+            if (choice != 'y')
+            {
+                Console.WriteLine("Dodavanje otkazano, pritisnite bilo koju tipku za povratak u prethodni izbornik");
+                Console.ReadKey();
+                return;
+            }
+            seat = ChooseFlightSeats(numberOfCategories);
+            newAirplane=new Airplane(name,year,numberofFlights,seat); 
+            airplanes.Add(newAirplane);
+            Console.WriteLine("Podaci uspješno spremljeni, povratak u prethodni izbornik,pritisnite bilo koju tipku");
+            Console.ReadKey();
 
+        }
+        static Dictionary<SeatCategory, int> ChooseFlightSeats(int numberOfCategories)
+        {
+            int input = 1;
+            var chosenCategories = new Dictionary<SeatCategory, int>();
+            var listCategories = Enum.GetValues(typeof(SeatCategory)).Cast<SeatCategory>().ToList();
+            for (int i = 0; i < numberOfCategories; i++)
+            {
+                Console.Clear();
+                SeatCategory selectedCategory;
+                while (true)
+                {
+                    Console.WriteLine("Dostupne kategorije:");
+                    var availableCategories = listCategories.Except(chosenCategories.Keys).ToList();
+                    for (int j = 0; j < availableCategories.Count; j++)
+                    {
+                        Console.WriteLine($"{j + 1}. {availableCategories[j]}");
+                    }
+                    input = Helper.ReadInt("Odaberite kategoriju, unesite ID: ");
+                    if (input >= 1 && input <= availableCategories.Count)
+                    {
+                        selectedCategory = availableCategories[input - 1];
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Neispravan unos, pokušajte ponovo.");
+                    }
+                }
+                input = Helper.ReadInt($"Unesite broj sjedala kategorije {selectedCategory}: ");
+                chosenCategories.Add(selectedCategory, input);
+            }
+            return chosenCategories;
+        }
+        static void SearchAirplane(List<Airplane> airplanes)
+        {
+
+        }
+        static void DeleteAirplane(List<Airplane> airplanes)
+        {
+
+        }
     }
 }

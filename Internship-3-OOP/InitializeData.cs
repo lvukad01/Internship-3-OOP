@@ -16,11 +16,11 @@ namespace Internship_3_OOP
 
         static InitializeData()
         {
+            InitializeCrewMembers(); 
+            InitializeAirplanes();    
+            InitializeCrews();      
+            InitializeFlights();       
             InitializePassengers();
-            InitializeCrewMembers();
-            InitializeAirplanes();
-            InitializeCrews();
-            InitializeFlights();
         }
 
         private static void InitializePassengers()

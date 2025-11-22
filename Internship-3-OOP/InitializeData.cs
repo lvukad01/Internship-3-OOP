@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Internship_3_OOP
 {
@@ -120,8 +116,8 @@ namespace Internship_3_OOP
                     Crews[1]),
 
                 new Flight("Split - Frankfurt",
-                    new DateTime(2025, 11, 5, 13, 10, 0),
-                    new DateTime(2025, 11, 5, 15, 15, 0),
+                    new DateTime(2026, 11, 5, 13, 10, 0),
+                    new DateTime(2026, 11, 5, 15, 15, 0),
                     950,
                     Airplanes[1],
                     Crews[1]),

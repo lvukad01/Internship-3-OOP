@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Internship_3_OOP
 {
     internal class Airplane
     {
-        public Guid Id { get; private set; }
         public int DisplayId {  get; private set; }
         public static int counter = 1;
         public string Name { get; set; }
@@ -21,7 +14,6 @@ namespace Internship_3_OOP
         public DateTime Updated { get;private set; }
         public  Airplane(string name,int year,int numberofFlights, Dictionary<SeatCategory, int> seat)
         {
-            Id= Guid.NewGuid();
             DisplayId = counter;
             counter++;
             Name = name;

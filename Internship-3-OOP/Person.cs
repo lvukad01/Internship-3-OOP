@@ -10,7 +10,6 @@ namespace Internship_3_OOP
     public abstract class Person
     {
       
-        public Guid Id { get; private set; }
         public string Name { get; set; }
         public string LastName {  get; set; }
         public string Email {  get; set; }
@@ -22,7 +21,6 @@ namespace Internship_3_OOP
 
         public Person(string name, string last_name, string email, string password, DateOnly birthday, Gender gender)
         {
-            Id =  Guid.NewGuid();
             Name = name;
             LastName = last_name;
             Email = email;

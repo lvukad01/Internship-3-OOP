@@ -396,8 +396,11 @@ namespace Internship_3_OOP
                         return;
                     }
                     else
-                        input = 0;
+                    {
+                        input = 1;
+                    }
                 }
+                input = 0;
             }
             TimeSpan timeUntilFlight = chosenFlight.Departure - DateTime.Now;
             if (timeUntilFlight < TimeSpan.FromHours(24))

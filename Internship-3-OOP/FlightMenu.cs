@@ -38,6 +38,7 @@ namespace Internship_3_OOP
         }
         public static void FlightList(List<Flight> flights)
         {
+            Console.Clear();
             Console.WriteLine("\nID - Naziv - Datum i vrijeme polaska - Datum i vrijeme dolaska - Udaljenost - Vrijeme putovanja\n");
             foreach (var flight in flights)
             {
@@ -300,7 +301,7 @@ namespace Internship_3_OOP
             }
             Console.WriteLine($"Jeste li sigurni da želite izbrisati let {chosenFlight.Name}? (y/n)");
             choice = Helper.ReadChar("");
-            if (choice != 'y') ;
+            if (choice != 'y');
             Console.WriteLine("Brisanje leta otkazano, povratak na prethodni izbornik");
             foreach (var passenger in passengers)
             {
